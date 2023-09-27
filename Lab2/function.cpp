@@ -15,7 +15,14 @@ void print(int *A, int n){
 }
 
 int max(int *A, int n){
-
+    int new_max = *A;
+    int i;
+    for(i = 1; i < n; ++i){
+        if(new_max < *(A + i)){
+            new_max = *(A + i);
+        }
+    }
+    return new_max;
 }
 
 int gcd(int *A, int n){
