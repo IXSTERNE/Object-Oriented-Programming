@@ -15,13 +15,16 @@ void print(int *A, int n){
 }
 
 int max(int *A, int n){
+
     int new_max = *A;
-    int i;
-    for(i = 1; i < n; ++i){
+
+    for(int i = 1; i < n; i++){
         if(new_max < *(A + i)){
             new_max = *(A + i);
         }
     }
+    std::cout << std::endl;
+    std::cout << "Max: ";
     return new_max;
 }
 
@@ -35,31 +38,54 @@ int gcdJunior(int a, int b){
 int gcd(int *A, int n){
 
     int result = *A;
-    int i;
 
-    for(i = 1; i < n; ++i){
+    for(int i = 1; i < n; i++){
         result = gcdJunior(*(A + i), result);
         if(result == 1){
             std::cout << std::endl;
+            std::cout << "Greatest common denominator : ";
             return 1;
         } 
     }
     std::cout << std::endl;
+    std::cout << "Greatest common denominator : ";
     return result;
 }
 
 int * concat(int *A, int n, int *B, int m){
-    return 0;
+
+    for(int i = 0; i < m; i++){
+        *(A + n + i) = *(B + i);
+    }
+    std::cout << std::endl;
+    std::cout << "Concatenation : ";
+    return A;
 }
 
 int * subarray(int *A, int n, int start, int len){
-    return 0;
+
+    std::cout << "Subarray : ";
+
+    for(int i = 0; i < len; i++){
+        return (A + start + i);
+    }
 }
 
 int * add(int * A, int n, int p, int e){
-    return 0;
+
+    for(int i = n; i > p; i--){
+        *(A + i) = *(A + i - 1);
+    }
+    *(A + p) = e;
+    std::cout << "Added " << e << " to the array: ";
+    return A;
 }
 
 int * del(int *A, int n, int p){
-    return 0;
+
+    std::cout << "Deleted the element " << *(A + p) << " from the array: ";
+    for(int i = p; i < n - 1; i++){
+        *(A + i) = *(A + i + 1);
+    }
+    return A;
 }
