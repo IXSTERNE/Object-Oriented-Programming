@@ -9,3 +9,7 @@ function.o: function.cpp
 
 clean:
 	del *.o *.exe
+
+
+# clean:
+# 	rm *.o output

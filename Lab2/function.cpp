@@ -40,24 +40,26 @@ int gcd(int *A, int n){
     for(i = 1; i < n; ++i){
         result = gcdJunior(*(A + i), result);
         if(result == 1){
+            std::cout << std::endl;
             return 1;
         } 
     }
+    std::cout << std::endl;
     return result;
 }
 
 int * concat(int *A, int n, int *B, int m){
-
+    return 0;
 }
 
 int * subarray(int *A, int n, int start, int len){
-
+    return 0;
 }
 
 int * add(int * A, int n, int p, int e){
-
+    return 0;
 }
 
 int * del(int *A, int n, int p){
-
+    return 0;
 }
