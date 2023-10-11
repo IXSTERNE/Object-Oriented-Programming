@@ -108,12 +108,10 @@ int * del(int *A, int n, int p){
     std::cout << "After deleting : ";
 
     for(int i = 0; i < n; i++){
-        // here we know for a fact that m = 5
         *(B + i) = *(A + i);
     }
 
     for(int i = p; i < n; i++){
-        // here we know for a fact that m = 5;
         *(B + i) = *(B + i + 1);
     }
     return B;
