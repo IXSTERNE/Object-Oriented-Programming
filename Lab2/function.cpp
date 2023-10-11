@@ -103,18 +103,16 @@ int * add(int * A, int n, int p, int e){
 
 int * del(int *A, int n, int p){
 
-    const int m = n + 1;
-    int *B = new int[m];
+    int *B = new int[n];
 
     std::cout << "After deleting : ";
 
-    for(int i = 0; i < m; i++){
+    for(int i = 0; i < n; i++){
         // here we know for a fact that m = 5
         *(B + i) = *(A + i);
-        std::cout << *(B + i) << std::endl;
     }
 
-    for(int i = p; i < m; i++){
+    for(int i = p; i < n; i++){
         // here we know for a fact that m = 5;
         *(B + i) = *(B + i + 1);
     }
