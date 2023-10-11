@@ -13,6 +13,7 @@ Fifo::Fifo(int n){
     front = 0;
     back = 0;
     count = 0;
+    capacity = n;
 }
 
 Fifo::~Fifo(){
@@ -21,13 +22,27 @@ Fifo::~Fifo(){
 }
 
 void Fifo::write(char c){
-    array[back] = c;
-    back++;
-    count++;
+    if(count < capacity){
+        array[back] = c;
+        back = (back + 1) % capacity;
+        count++;
+    }
+    else{
+        cout << "Array is full" << endl;
+    }
 }
 
 char Fifo::read(){
-    cout << array[front] << endl;
+    if(count > 0){
+        char c = array[front];
+        front = (front + 1) % capacity;
+        count--;
+        return c;
+    }
+    else{
+        cout << "Array is empty" << endl;
+        return '\0';
+    }
 }
 
 int Fifo::nitems(){

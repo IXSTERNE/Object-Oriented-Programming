@@ -13,6 +13,7 @@ class Fifo{
     int front;
     int back;
     int count;
+    int capacity;
 };
 
 #endif
