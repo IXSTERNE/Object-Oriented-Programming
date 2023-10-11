@@ -54,38 +54,69 @@ int gcd(int *A, int n){
 
 int * concat(int *A, int n, int *B, int m){
 
-    for(int i = 0; i < m; i++){
-        *(A + n + i) = *(B + i);
+    int k = n + m;
+    int *C = new int[k];
+    int j = 0;
+
+    for(int i = 0; i < n; i++){
+        *(C + i) = *(A + i);
     }
+    for(int i = n; i < k; i++){
+        *(C + i) = *(B + j);
+        j++;
+    }
+
     std::cout << std::endl;
     std::cout << "Concatenation : ";
-    return A;
+    return C;
 }
 
 int * subarray(int *A, int n, int start, int len){
 
+    int *B = new int[len];
+
     std::cout << "Subarray : ";
 
     for(int i = 0; i < len; i++){
-        return (A + start + i);
+        *(B + i) = *(A + start + i);
     }
+    return B;
 }
 
 int * add(int * A, int n, int p, int e){
 
-    for(int i = n; i > p; i--){
-        *(A + i) = *(A + i - 1);
+    int m = n;
+    int *B = new int[m];
+
+    for(int i = 0; i < m; i++){
+        *(B + i) = *(A + i);
     }
-    *(A + p) = e;
+
+    for(int i = m; i > p; i--){
+        *(B + i) = *(B + i - 1);
+    }
+    *(B + p) = e;
+
     std::cout << "Added " << e << " to the array: ";
-    return A;
+    return B;
 }
 
 int * del(int *A, int n, int p){
 
-    std::cout << "Deleted the element " << *(A + p) << " from the array: ";
-    for(int i = p; i < n - 1; i++){
-        *(A + i) = *(A + i + 1);
+    const int m = n + 1;
+    int *B = new int[m];
+
+    std::cout << "After deleting : ";
+
+    for(int i = 0; i < m; i++){
+        // here we know for a fact that m = 5
+        *(B + i) = *(A + i);
+        std::cout << *(B + i) << std::endl;
     }
-    return A;
+
+    for(int i = p; i < m; i++){
+        // here we know for a fact that m = 5;
+        *(B + i) = *(B + i + 1);
+    }
+    return B;
 }
