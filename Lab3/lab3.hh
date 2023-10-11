@@ -8,6 +8,11 @@ class Fifo{
         void write(char);
         char read();
         int nitems();
+
+    char *array;
+    int front;
+    int back;
+    int count;
 };
 
 #endif
