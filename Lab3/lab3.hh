@@ -8,6 +8,7 @@ class Fifo{
         void write(char);
         char read();
         int nitems();
+        Fifo(const Fifo& original);
 
     char *array;
     int front;

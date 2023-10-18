@@ -2,11 +2,6 @@
 #include <iostream>
 using namespace std;
 
-// class Fifo{
-//     int *array;
-//     int front;
-//     int back;
-// };
 
 Fifo::Fifo(int n){
     array = new char[n];
@@ -16,10 +11,27 @@ Fifo::Fifo(int n){
     capacity = n;
 }
 
+
+Fifo::Fifo(const Fifo& original)
+{   
+    capacity = original.capacity;
+    front = original.front;
+    back = original.back;
+    count = original.count;
+    
+    array = new char[capacity];
+    cout << "Copy constructor activated" << endl;
+    for(int i = 0; i < capacity; i++){
+        array[i] = original.array[i];
+    }
+}
+
+
 Fifo::~Fifo(){
     delete[] array;
     cout << "Destructor activated" << endl;
 }
+
 
 void Fifo::write(char c){
     if(count < capacity){
@@ -31,6 +43,7 @@ void Fifo::write(char c){
         cout << "Array is full" << endl;
     }
 }
+
 
 char Fifo::read(){
     if(count > 0){
@@ -44,6 +57,7 @@ char Fifo::read(){
         return '\0';
     }
 }
+
 
 int Fifo::nitems(){
     return count;
