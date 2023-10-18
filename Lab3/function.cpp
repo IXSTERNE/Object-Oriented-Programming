@@ -1,5 +1,8 @@
 #include "lab3.hh"
 #include <iostream>
+//#include <cstring> std::memcpy
+
+
 using namespace std;
 
 
@@ -18,12 +21,14 @@ Fifo::Fifo(const Fifo& original)
     front = original.front;
     back = original.back;
     count = original.count;
-    
+
     array = new char[capacity];
     cout << "Copy constructor activated" << endl;
+    
     for(int i = 0; i < capacity; i++){
         array[i] = original.array[i];
     }
+    //memcpy(array, original.array, capacity); If you wanna get fancy
 }
 
 
