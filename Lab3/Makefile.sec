@@ -1,0 +1,11 @@
+lab3: main2.o function.o
+	g++ main2.o function.o -o lab3
+
+main2.o: main2.cpp
+	g++ -c main2.cpp
+	
+function2.o: function.cpp
+	g++ -c function.cpp
+
+clean:
+	del *.o *.exe
