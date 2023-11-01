@@ -8,13 +8,40 @@ EngBut::EngBut(int hurtver, int huvaari){
     denominator = huvaari;
 }
 
-istream& operator>>(istream& cin, EngBut& object){
+istream& operator>>(istream& in, EngBut& object){
     cin >> object.number >> object.denominator;
-    return cin;
+    return in;
 }
 
-ostream& operator<<(ostream& cout, EngBut& object){
-    cout << object.number << "/" << object.denominator;
-    return cout;
+ostream& operator<<(ostream& out, const EngBut& object){
+    cout << object.number << "/ "<< object.denominator;
+    return out;
 }
 
+EngBut EngBut::operator+(EngBut const& object){
+    int hurtver = number * object.denominator + denominator * object.number;
+    int huvaari = denominator * object.denominator;
+    
+    return EngBut(hurtver, huvaari);
+}
+
+EngBut EngBut::operator-(EngBut const& object){
+    int hurtver = number * object.denominator - denominator * object.number;
+    int huvaari = denominator * object.denominator;
+
+    return EngBut(hurtver, huvaari);
+}
+
+EngBut EngBut::operator*(EngBut const& object){
+    int hurtver = number * object.number;
+    int huvaari = denominator * object.denominator;
+
+    return EngBut(hurtver, huvaari);
+}
+
+EngBut EngBut::operator/(EngBut const& object){
+    int hurtver = number * object.denominator;
+    int huvaari = denominator * object.number;
+
+    return EngBut(hurtver, huvaari);
+}
