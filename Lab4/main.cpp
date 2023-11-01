@@ -1,10 +1,11 @@
+#include "lab4.hh"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-        EngBut a,b;
+        EngBut a, b;
         cin>>a; // 1/2
         cin>>b; // 2/5
 
