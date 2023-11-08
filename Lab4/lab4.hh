@@ -3,11 +3,12 @@
 
 using namespace std;
 
+
 class EngBut{
     public:
         EngBut(int hurtver = 1, int huvaari = 0);
-        friend istream& operator>>(istream& cin, const EngBut& object);
-        friend ostream& operator<<(ostream& cout, EngBut& object);
+        friend istream& operator>>(istream& cin, EngBut& object);
+        friend ostream& operator<<(ostream& cout, const EngBut& object);
         EngBut operator+(const EngBut& object);
         EngBut operator-(const EngBut& object);
         EngBut operator*(const EngBut& object);
