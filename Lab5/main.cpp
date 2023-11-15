@@ -1,4 +1,6 @@
+#include "lab5.hh"
 #include <iostream>
+
 
 using namespace std;
 
