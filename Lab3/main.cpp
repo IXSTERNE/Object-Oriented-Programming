@@ -1,6 +1,7 @@
 #include "lab3.hh"
 #include <iostream>
 
+
 using namespace std;
 
 int main()
@@ -14,6 +15,7 @@ int main()
         f.write('d');
         f.write('e');
         f.write('f');
+        
         cout<< f.read() << endl;
         cout<< f.nitems() << endl;
 
