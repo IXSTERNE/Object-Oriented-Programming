@@ -1,5 +1,5 @@
-#ifndef LAB3_HH
-#define LAB3_HH
+#ifndef TEMPLATE_HH
+#define TEMPLATE_HH
 
 template <typename T>
 class Fifo{
@@ -17,6 +17,6 @@ class Fifo{
 };
 
 
-
+#include "template.tpp"
 
 #endif

@@ -16,7 +16,7 @@ Fifo<T>::Fifo(int n){
 template <typename T>
 Fifo<T>::~Fifo(){
     delete[] array;
-    cout << "Destructor adctivated" << endl;
+    cout << "Destructor activated" << endl;
 }
 
 template <typename T>
