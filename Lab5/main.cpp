@@ -18,5 +18,8 @@ int main()
         cout<< fi.read() << endl; // 3
         cout<< fc.read() << endl; // a
 
+        cout<< "The integer array has \"" << fi.nitems() << "\"" << " items left" << endl;
+        cout<< "The character array has \"" << fc.nitems() << "\"" << " items left" << endl;
+
         return 0;
 }
