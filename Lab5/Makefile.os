@@ -5,4 +5,4 @@ main.o: main.cpp lab5.hh
 	g++ -c main.cpp
 
 clean:
-	rm *.o
+	rm *.o lab5
