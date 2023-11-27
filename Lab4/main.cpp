@@ -9,8 +9,8 @@ int main()
         cin>>a; // 1/2
         cin>>b; // 2/5
 
-        // EngBut c(0, 1); // 0
-        // EngBut d(1, 1); // 1
+        EngBut a(0, 1); // 0
+        EngBut b(1, 1); // 1
 
         // cout<< a + b << endl; // 9/10
         // cout<< a * b << endl; // 1/10

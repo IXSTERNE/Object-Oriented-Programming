@@ -8,12 +8,12 @@ EngBut::EngBut(int hurtver, int huvaari){
     denominator = huvaari;
 }
 
-istream& operator>>(istream& cin, EngBut &object){
+istream& operator>>(istream& in, EngBut &object){
     cin >> object.number >> object.denominator;
     return cin;
 }
 
-ostream& operator<<(ostream& cout, const EngBut& object){
+ostream& operator<<(ostream& out, const EngBut& object){
     cout << object.number << '/' << object.denominator;
     return cout;
 }

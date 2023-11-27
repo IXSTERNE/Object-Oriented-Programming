@@ -1,14 +1,13 @@
 #ifndef LAB4_HH
 #define LAB4_HH
-
-using namespace std;
+#include <iostream>
 
 
 class EngBut{
     public:
         EngBut(int hurtver = 1, int huvaari = 0);
-        friend istream& operator>>(istream& cin, EngBut& object);
-        friend ostream& operator<<(ostream& cout, const EngBut& object);
+        friend std::istream& operator>>(std::istream& in, EngBut& object);
+        friend std::ostream& operator<<(std::ostream& out, const EngBut& object);
         EngBut operator+(const EngBut& object);
         EngBut operator-(const EngBut& object);
         EngBut operator*(const EngBut& object);
