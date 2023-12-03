@@ -9,7 +9,7 @@ class Shape{
         double pi = M_PI;
         // protected : variables cannot be accessed from 
         // outside the class but possible to access it via inheritance
-        // private : variabkes cannot be accessed from out of the class
+        // private : variables cannot be accessed from out of the class
 };
 
 class Rectangle : public Shape{
