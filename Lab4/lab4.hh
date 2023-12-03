@@ -14,6 +14,12 @@ class EngBut{
         EngBut operator-(const EngBut& object);
         EngBut operator*(const EngBut& object);
         EngBut operator/(const EngBut& object);
+
+        EngBut operator+(const int integer);
+        EngBut operator-(const int integer);
+        EngBut operator*(const int integer);
+        EngBut operator/(const int integer);
+
     int number;
     int denominator;
     int simplifier;

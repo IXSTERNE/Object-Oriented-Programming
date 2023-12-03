@@ -23,7 +23,7 @@ ostream& operator<<(ostream& out, const EngBut& object){
 
 int EngBut::gcd(int a, int b){
 
-    int result = min(a, b);
+    int result = abs(min(a, b));
     while(result > 0){
         if (a % result == 0 && b % result == 0){
             break;
@@ -51,6 +51,7 @@ EngBut EngBut::operator+(const EngBut& object){
     return EngBut(hurtver, huvaari);
 }
 
+
 EngBut EngBut::operator-(const EngBut &object){
 
     int hurtver = (number * object.denominator) - (denominator * object.number);
@@ -75,6 +76,48 @@ EngBut EngBut::operator/(const EngBut &object){
 
     int hurtver = number * object.denominator;
     int huvaari = denominator * object.number;
+
+    refactor(hurtver, huvaari);
+
+    return EngBut(hurtver, huvaari);
+}
+
+EngBut EngBut::operator+(const int integer){
+
+    int hurtver = number + (denominator * integer);
+    int huvaari = denominator;
+
+    refactor(hurtver, huvaari);
+
+    return EngBut(hurtver, huvaari);
+}
+
+EngBut EngBut::operator-(const int integer){
+
+    int hurtver = number - (denominator * integer);
+    int huvaari = denominator;
+
+    refactor(hurtver, huvaari);
+
+    return EngBut(hurtver, huvaari);
+}
+
+EngBut EngBut::operator*(const int integer){
+
+    int hurtver = number * integer;
+    int huvaari = denominator;
+
+    refactor(hurtver, huvaari);
+
+    return EngBut(hurtver, huvaari);
+}
+
+EngBut EngBut::operator/(const int integer){
+    if(integer == 0){
+        throw std::invalid_argument("Division by zero is not allowed");
+    }
+    int hurtver = number;
+    int huvaari = denominator * integer;
 
     refactor(hurtver, huvaari);
 
