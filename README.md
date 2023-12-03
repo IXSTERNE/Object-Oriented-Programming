@@ -2,7 +2,7 @@
 
 ## Contents
 
-1. Remembering C
+1. Recalling C
 2. C++: Pointers and Dynamic memory
 3. C++: Classes
 4. C++: Operator overloading
