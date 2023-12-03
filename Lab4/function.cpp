@@ -18,17 +18,24 @@ ostream& operator<<(ostream& out, const EngBut& object){
     return cout;
 }
 
+// void EngBut::refactor(int& re_hurtver, int& re_huvaari){
+//     if(re_hurtver % re_huvaari == 0){
+//         re_hurtver = re_hurtver / re_huvaari;
+//         re_huvaari = re_huvaari / re_huvaari;
+//     }
+// }
+
 EngBut EngBut::operator+(const EngBut& object){
-    int hurtver = number * object.denominator + denominator * object.number;
+    int hurtver = (number * object.denominator) + (denominator * object.number);
     int huvaari = denominator * object.denominator;
     
     return EngBut(hurtver, huvaari);
 }
 
 EngBut EngBut::operator-(const EngBut &object){
-    int hurtver = number * object.denominator - denominator * object.number;
+    int hurtver = (number * object.denominator) - (denominator * object.number);
     int huvaari = denominator * object.denominator;
-
+    
     return EngBut(hurtver, huvaari);
 }
 
