@@ -25,7 +25,7 @@ Triangle::Triangle(double a, double b, double c){
 }
 
 double Triangle::area(){
-    semi_p = (a + b + c) / 2;
+    double semi_p = (a + b + c) / 2;
     return sqrt(semi_p * (semi_p - a) * (semi_p - b) * (semi_p - c));
 }
 

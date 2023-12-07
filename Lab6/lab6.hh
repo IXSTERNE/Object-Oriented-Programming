@@ -31,7 +31,6 @@ class Triangle : public Shape{
         double a;
         double b;
         double c;
-        double semi_p;
 };
 
 class Circle : public Shape{
