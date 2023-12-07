@@ -1,0 +1,11 @@
+lab6: main.o functions.o
+	g++ main.o functions.o -o lab6
+
+main.o: main.cpp
+	g++ -c main.cpp
+	
+functions.o: functions.cpp
+	g++ -c functions.cpp
+
+clean:
+	rm *.o lab6
