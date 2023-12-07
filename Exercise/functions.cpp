@@ -4,38 +4,32 @@
 
 
 
-Student::Student(std::string name, std::string attendance){
+Student::Student(std::string name, std::string attendance, Course takenCourse)
+    : attendance(attendance), takenCourse(takenCourse)
+{
     this->name = name;
     this->attendance = attendance;
+}
+
+void Student::toString(){
+        std::cout << "Student name: " << name << std::endl;
+        
+    }
+
+Course::Course(std::string name, Teacher courseTeacher)
+    : courseTeacher(courseTeacher)
+{
+    this->name = name;
+}
+
+void Course::printCourseName(){
+    std::cout << "Course name: " << name << std::endl;
 }
 
 Teacher::Teacher(std::string name){
     this->name = name;
 }
 
-Course::Course(std::string name, Student classAttendance, Teacher classTeacher)
-    : name(name), classAttendance(classAttendance), classTeacher(classTeacher)
-{}
-
-void Student::printStudentName(){
-    std::cout << name << std::endl;
-}
-
-void Student::printAttendance(){
-    std::cout << attendance << std::endl;
-}
-
-void Course::toString(){
-    std::cout << "Name of the class: " << name << std::endl;
-    std::cout << "Name of the student: ";
-    classAttendance.printStudentName();
-    std::cout << "Attendance: ";
-    classAttendance.printAttendance();
-    std::cout << "Course teacher name: ";
-    classTeacher.printTeacherName();
-}
-
 void Teacher::printTeacherName(){
-    std::cout << name << std::endl;
+    std::cout << "Teacher name: " << name << std::endl;
 }
-

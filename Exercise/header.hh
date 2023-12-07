@@ -6,10 +6,10 @@
 
 class Student{
     public:
-        Student(std::string = 0, std::string = 0);
-        void printStudentName();
-        void printAttendance();
+        Student(std::string = 0, std::string = 0, Course takenCourse);
+        void toString();
     private:
+        Course takenCourse;
         std::string name;
         std::string attendance;
 };
@@ -24,11 +24,10 @@ class Teacher{
 
 class Course{
     public:
-        Course(std::string, Student, Teacher);
-        void toString();
+        Course(std::string, Teacher courseTeacher);
+        void printCourseName();
     private:
-        Student classAttendance;
-        Teacher classTeacher;
+        Teacher courseTeacher;
         std::string name;
 };
 
