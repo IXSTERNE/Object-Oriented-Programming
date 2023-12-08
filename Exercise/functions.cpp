@@ -2,34 +2,19 @@
 #include <string>
 #include "header.hh"
 
-
-
-Student::Student(std::string name, std::string attendance, Course takenCourse)
-    : attendance(attendance), takenCourse(takenCourse)
-{
-    this->name = name;
-    this->attendance = attendance;
+Teacher::Teacher(std::string teacherName){
+    this->teacherName = teacherName;
 }
 
-void Student::toString(){
-        std::cout << "Student name: " << name << std::endl;
-        
-    }
-
-Course::Course(std::string name, Teacher courseTeacher)
+Course::Course(std::string courseName, const Teacher& courseTeacher)
     : courseTeacher(courseTeacher)
 {
-    this->name = name;
+    this->courseName = courseName;
 }
 
-void Course::printCourseName(){
-    std::cout << "Course name: " << name << std::endl;
-}
-
-Teacher::Teacher(std::string name){
-    this->name = name;
-}
-
-void Teacher::printTeacherName(){
-    std::cout << "Teacher name: " << name << std::endl;
+Student::Student(std::string studentName, std::string attendance, const Course& takenCourse)
+    : takenCourse(takenCourse)
+{
+    this->studentName = studentName;
+    this->attendance = attendance;
 }

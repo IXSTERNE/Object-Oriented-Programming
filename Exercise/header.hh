@@ -4,32 +4,32 @@
 #include <iostream>
 #include <string>
 
-class Student{
-    public:
-        Student(std::string = 0, std::string = 0, Course takenCourse);
-        void toString();
-    private:
-        Course takenCourse;
-        std::string name;
-        std::string attendance;
-};
-
 class Teacher{
     public:
         Teacher(std::string);
-        void printTeacherName();
     private:
-        std::string name;
+        std::string teacherName;
 };
 
 class Course{
     public:
-        Course(std::string, Teacher courseTeacher);
-        void printCourseName();
+        Course(std::string, const Teacher& courseTeacher);
     private:
+        std::string courseName;
         Teacher courseTeacher;
-        std::string name;
 };
+
+class Student{
+    public:
+        Student(std::string, std::string, const Course& takenCourse);
+    private:
+        std::string studentName;
+        std::string attendance;
+        Course takenCourse;
+};
+
+
+
 
 
 #endif
