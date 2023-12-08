@@ -7,6 +7,7 @@
 class Teacher{
     public:
         Teacher(std::string);
+        void print() const;
     private:
         std::string teacherName;
 };
@@ -14,6 +15,7 @@ class Teacher{
 class Course{
     public:
         Course(std::string, const Teacher& courseTeacher);
+        void print() const;
     private:
         std::string courseName;
         Teacher courseTeacher;
@@ -22,14 +24,11 @@ class Course{
 class Student{
     public:
         Student(std::string, std::string, const Course& takenCourse);
+        void print() const;
     private:
         std::string studentName;
         std::string attendance;
         Course takenCourse;
 };
-
-
-
-
 
 #endif
