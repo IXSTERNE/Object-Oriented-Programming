@@ -2,12 +2,21 @@
 #include <string>
 #include "header.hh"
 
+
+Student::Student(std::string studentName){
+    this->studentName = studentName;
+}
+
+std::string Student::getName() const{
+    return studentName;
+}
+
 Teacher::Teacher(std::string teacherName){
     this->teacherName = teacherName;
 }
 
-void Teacher::print() const{
-    std::cout << "Teacher name: " << teacherName << std::endl;
+std::string Teacher::getName() const{
+    return teacherName;
 }
 
 Course::Course(std::string courseName, const Teacher& courseTeacher)
@@ -16,20 +25,17 @@ Course::Course(std::string courseName, const Teacher& courseTeacher)
     this->courseName = courseName;
 }
 
-void Course::print() const{
-    std::cout << "Course name: " << courseName << std::endl;
-    courseTeacher.print();
+void Course::enrollStudent(const Student& student){
+    students.push_back(student);
+    attendance[student.getName()] = "Absent";
 }
 
-Student::Student(std::string studentName, std::string attendance, const Course& takenCourse)
-    : takenCourse(takenCourse)
-{
-    this->studentName = studentName;
-    this->attendance = attendance;
+void Course::recordAttendance(const std::string& studentName, std::string status){
+    
 }
 
-void Student::print() const{
-    std::cout << "Student name: " << studentName << std::endl;
-    std::cout << "Attendance: " << attendance << std::endl;
-    takenCourse.print();
+void Course::printAttendance() const{
+    
 }
+
+

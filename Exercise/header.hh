@@ -3,11 +3,21 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <map>
+
+class Student{
+    public:
+        Student(std::string);
+        std::string getName() const;
+    private:
+        std::string studentName;
+};
 
 class Teacher{
     public:
         Teacher(std::string);
-        void print() const;
+        std::string getName() const;
     private:
         std::string teacherName;
 };
@@ -15,20 +25,15 @@ class Teacher{
 class Course{
     public:
         Course(std::string, const Teacher& courseTeacher);
-        void print() const;
+        void enrollStudent(const Student& student);
+        void recordAttendance(const std::string& studentName, std::string status);
+        void printAttendance() const;
     private:
         std::string courseName;
+        std::string status;
         Teacher courseTeacher;
-};
-
-class Student{
-    public:
-        Student(std::string, std::string, const Course& takenCourse);
-        void print() const;
-    private:
-        std::string studentName;
-        std::string attendance;
-        Course takenCourse;
+        std::vector<Student> students;
+        std::map<std::string, std::string> attendance;
 };
 
 #endif
