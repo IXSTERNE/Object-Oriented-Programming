@@ -3,8 +3,9 @@
 #include "header.hh"
 
 
-Student::Student(std::string studentName){
+Student::Student(std::string studentName, int studentId){
     this->studentName = studentName;
+    this->studentId = studentId;
 }
 
 std::string Student::getName() const{
