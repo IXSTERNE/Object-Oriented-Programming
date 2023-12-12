@@ -10,6 +10,7 @@ class Student{
     public:
         Student(std::string, int studentId);
         std::string getName() const;
+        int getStudentId() const;
     private:
         std::string studentName;
         int studentId;
@@ -34,7 +35,7 @@ class Course{
         std::string status;
         Teacher courseTeacher;
         std::vector<Student> students;
-        std::map<int, std::string> attendance;
+        std::map<std::string, int> attendance;
 };
 
 #endif

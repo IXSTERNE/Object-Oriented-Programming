@@ -12,6 +12,10 @@ std::string Student::getName() const{
     return studentName;
 }
 
+int Student::getStudentId() const{
+    return studentId;
+}
+
 Teacher::Teacher(std::string teacherName){
     this->teacherName = teacherName;
 }
