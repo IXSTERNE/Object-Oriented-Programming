@@ -6,36 +6,36 @@
 #include <vector>
 #include <map>
 
+using namespace std;
+
 class Student{
     public:
-        Student(std::string, int studentId);
-        std::string getName() const;
+        Student(string, string, int studentId, const Course& takenCourse);
         int getStudentId() const;
-    private:
-        std::string studentName;
+        string getStudentStatus() const;
+    protected:
+        string attendanceStatus;
+        string studentName;
         int studentId;
+        Course takenCourse;
 };
 
 class Teacher{
     public:
-        Teacher(std::string);
-        std::string getName() const;
+        Teacher(string);
     private:
-        std::string teacherName;
+        string teacherName;
 };
 
 class Course{
     public:
-        Course(std::string, const Teacher& courseTeacher);
-        void enrollStudent(const Student& student);
-        void recordAttendance(const std::string& studentName, std::string status);
-        void printAttendance() const;
+        Course(string, const Teacher& courseTeacher);
+        void checkStudentAttendance(const Student& student);
     private:
-        std::string courseName;
-        std::string status;
+        string courseName;
         Teacher courseTeacher;
-        std::vector<Student> students;
-        std::map<std::string, int> attendance;
+        vector<Student> students;
+        map<int, string> attendance;
 };
 
 #endif

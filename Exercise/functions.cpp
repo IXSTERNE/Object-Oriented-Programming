@@ -2,45 +2,42 @@
 #include <string>
 #include "header.hh"
 
+using namespace std;
 
-Student::Student(std::string studentName, int studentId){
+Student::Student(string studentName, string attendanceStatus, int studentId, const Course& takenCourse)
+    : takenCourse(takenCourse)
+{
     this->studentName = studentName;
     this->studentId = studentId;
+    this->attendanceStatus = attendanceStatus;
 }
 
-std::string Student::getName() const{
-    return studentName;
-}
 
 int Student::getStudentId() const{
     return studentId;
 }
 
-Teacher::Teacher(std::string teacherName){
+string Student::getStudentStatus() const{
+    return attendanceStatus;
+}
+
+Teacher::Teacher(string teacherName){
     this->teacherName = teacherName;
 }
 
-std::string Teacher::getName() const{
-    return teacherName;
-}
-
-Course::Course(std::string courseName, const Teacher& courseTeacher)
+Course::Course(string courseName, const Teacher& courseTeacher)
     : courseTeacher(courseTeacher)
 {
     this->courseName = courseName;
 }
 
-void Course::enrollStudent(const Student& student){
+void Course::checkStudentAttendance(const Student& student){
     students.push_back(student);
-    attendance[student.getName()] = "Absent";
+    attendance.insert(pair<int, string>(student.getStudentId(), student.getStudentStatus()));
+    attendance.insert(pair<int, string>(student.studentId, student.attendanceStatus));
 }
 
-void Course::recordAttendance(const std::string& studentName, std::string status){
-    
-}
 
-void Course::printAttendance() const{
-    
-}
+
 
 
