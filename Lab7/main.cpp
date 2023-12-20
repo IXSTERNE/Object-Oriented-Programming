@@ -21,15 +21,13 @@ int main(){
     Course oop("OOP in C++", magsar, 30);
     Course ds("Data Structures", ggtulga, 20);
 
-    //1) rand(k) : 0 -ees k-1 hurtel int butsaadag
-
     for(int i = 0; i < N; i++){
-        int c = rand(3);
+        int c = rand() % 2;
         if(c == 0){
-            oop.register(mkut_stud[i]);
+            oop.registerStudent(mkut_stud[i]);
         }
         if(c == 1){
-            ds.register(mkut_stud[i]);
+            ds.registerStudent(mkut_stud[i]);
         }
     }
 
@@ -51,7 +49,7 @@ int main(){
     */
 
     for(int i = 0; i < oop.stud_num(); i++){
-        int r = rand(2);
+        int r = rand() % 2;
         if(r == 0){
             oop.kick(oop.getStudent(i).getId());
         }
@@ -60,7 +58,7 @@ int main(){
     oop.print();
 
     for(int i = 0; i < ds.stud_num(); i++){
-        int r = rand(2);
+        int r = rand() % 2;
         if(r == 0){
             ds.kick(ds.getStudent(i).getId());
         }
@@ -68,7 +66,7 @@ int main(){
 
     ds.print();
 
-    //2) 3 classiin bux gishuun ugugdul : private
+    // 2) 3 classiin bux gishuun ugugdul : private
     // 3) 3 classaa header file + object bolgoj urdchilj compildej bgaad main.cpp dee ashiglana
     // 3 classiin methodiin implementationuud haragdaxgui
     // system include bin ees ajiluulval +1 onoo
