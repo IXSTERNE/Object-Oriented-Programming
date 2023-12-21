@@ -3,26 +3,27 @@
 
 #include <iostream>
 #include <string>
-#include "teacher.hh"
-#include "student.hh"
 #include <vector>
 
-using namespace std;
+#include "teacher.hh"
+#include "student.hh"
 
 class Course{
     public:
-        Course(string, const Teacher& courseTeacher, int courseCapacity);
+        Course(std::string, const Teacher& courseTeacher, int courseCapacity);
         void registerStudent(Student);
         void print();
         int stud_num();
-        void kick();
-        int getStudent(int);
-        int getId();
+        void kick(int);
+        Student getStudent(int);
+        Student getKickList(int);
+        int getCurrentCapacity();
     private:
-        string courseName;
+        std::string courseName;
         Teacher courseTeacher;
         int courseCapacity;
-        vector<Student> studentList;
+        std::vector<Student> studentList;
+        std::vector<Student> kickList;
 };
 
 #endif

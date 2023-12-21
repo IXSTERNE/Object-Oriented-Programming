@@ -3,17 +3,16 @@
 
 #include <iostream>
 #include <string>
-#include "teacher.hh"
-#include "course.hh"
-
-using namespace std;
 
 class Student{
     public:
-        Student(int = 0, string = "", string = "");
+        Student(int = 0, std::string = "", std::string = "");
+        int getId() const;
+        std::string getFirstName() const;
+        std::string getLastName() const;
     private:
-        string studentfName;
-        string studentlName;
+        std::string studentfName;
+        std::string studentlName;
         int studentId;
 };
 

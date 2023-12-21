@@ -2,20 +2,20 @@
 #define TEACHER_H
 
 #include <iostream>
-#include <string>
-#include "course.hh"
-#include "student.hh"
 #include <vector>
+#include <string>
 
-using namespace std;
 
 class Teacher{
     public:
-        Teacher(string, string, string);
+        Teacher(std::string, std::string, std::string);
+        std::string getTeacherfName() const;
+        std::string getTeacherlName() const;
+        std::string getTeacherEmail() const;
     private:
-        string teacherfName;
-        string teacherlName;
-        string teacherEmail;
+        std::string teacherfName;
+        std::string teacherlName;
+        std::string teacherEmail;
 };
 
 

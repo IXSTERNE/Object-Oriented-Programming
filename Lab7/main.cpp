@@ -1,7 +1,9 @@
 #include <iostream>
-#include <course.hh>
-#include <teacher.hh>
-#include <student.hh>
+#include "course.hh"
+#include "teacher.hh"
+#include "student.hh"
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -12,7 +14,7 @@ int main(){
     Student mkut_stud[N];
 
     for(int i = 0; i < N; i++){
-        mkut_stud[i] = Student(2000 + i, "Ner" + i, "Ovog" + i);
+        mkut_stud[i] = Student(2000 + i, "Ner" + to_string(i), "Ovog" + to_string(i));
     }
 
     Teacher magsar("Magsarjav", "Bataa", "magsarjav@gmail.com");
@@ -48,27 +50,49 @@ int main(){
         ......
     */
 
-    for(int i = 0; i < oop.stud_num(); i++){
-        int r = rand() % 2;
-        if(r == 0){
-            oop.kick(oop.getStudent(i).getId());
+    // for(int i = 0; i < oop.stud_num(); i++){
+    //     int r = rand() % 2;
+    //     if(r == 0){
+    //         oop.kick(oop.getStudent(i).getId());
+    //     }
+    // }
+
+
+    while(oop.stud_num() != oop.getCurrentCapacity()){
+        for(int i = 0; i < oop.getCurrentCapacity(); i++){
+            int r = rand() % 2;
+            if (r == 0){
+                oop.getKickList().push_back();
+                oop.kick(oop.getStudent(i).getId());
+            }
         }
     }
 
+
     oop.print();
 
-    for(int i = 0; i < ds.stud_num(); i++){
-        int r = rand() % 2;
-        if(r == 0){
-            ds.kick(ds.getStudent(i).getId());
+    // for(int i = 0; i < ds.stud_num(); i++){
+    //     int r = rand() % 2;
+    //     if(r == 0){
+    //         ds.kick(ds.getStudent(i).getId());
+    //     }
+    // }
+
+    while(ds.stud_num() != ds.getCurrentCapacity()){
+        for(int i = 0; i < ds.getCurrentCapacity(); i++){
+            int r = rand() % 2;
+            if (r == 0){
+                ds.kick(ds.getStudent(i).getId());
+            }
         }
     }
 
     ds.print();
 
-    // 2) 3 classiin bux gishuun ugugdul : private
+    // 2) 3 classiin bux gishuun ugugdul : private (CHECK)
     // 3) 3 classaa header file + object bolgoj urdchilj compildej bgaad main.cpp dee ashiglana
     // 3 classiin methodiin implementationuud haragdaxgui
     // system include bin ees ajiluulval +1 onoo
+
     return 0;
 }

@@ -1,8 +1,9 @@
 #include <iostream>
-#include <course.hh>
-#include <teacher.hh>
-#include <student.hh>
+#include "course.hh"
+#include "teacher.hh"
+#include "student.hh"
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -25,26 +26,69 @@ Course::Course(string courseName, const Teacher& courseTeacher, int courseCapaci
     this->courseCapacity = courseCapacity;
 }
 
+int Student::getId() const{
+    return studentId;
+}
+
+string Student::getFirstName() const{
+    return studentfName;
+}
+
+string Student::getLastName() const{
+    return studentlName;
+}
+
 void Course::registerStudent(Student mkut_stud){
     studentList.push_back(mkut_stud);
 }
 
+int Course::getCurrentCapacity(){
+    return studentList.size();
+}
+
+string Teacher::getTeacherfName() const{
+    return teacherfName;
+}
+
+string Teacher::getTeacherlName() const{
+    return teacherlName;
+}
+
+string Teacher::getTeacherEmail() const{
+    return teacherEmail;
+}
+
 void Course::print(){
-    cout << "Hello world!" << endl;
+    cout << "Course Name: " << courseName 
+    << "   Teacher: " << courseTeacher.getTeacherfName() << " "
+    << courseTeacher.getTeacherlName() <<" " << "("
+    << courseTeacher.getTeacherEmail() << ")" <<"   "
+    << "Seat: "
+    << courseCapacity << endl;
+
+    std::cout <<"----------------------------------------------------------------------------------------" << endl;
+
+    int enumerate = 1;
+    for (const Student& student : studentList){
+        cout << enumerate << ". "
+        << "ID: " << student.getId()
+        << ", First name: " << student.getFirstName()
+        << ", Last name: " << student.getLastName() << endl;
+        enumerate++;
+    }
 }
 
 int Course::stud_num(){
     return courseCapacity;
 }
 
-void Course::kick(){
-
+Student Course::getStudent(int index){
+    return studentList[index];
 }
 
-int Course::getStudent(int index){
-
+Student Course::getKickList(int index){
+    return kickList[index];
 }
 
-int Course::getId(){
-
+void Course::kick(int id){
 }
