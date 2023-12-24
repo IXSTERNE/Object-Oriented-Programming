@@ -16,7 +16,8 @@ class Course{
         int stud_num();
         void kick(int);
         Student getStudent(int);
-        Student getKickList(int);
+        void setKickList(Student);
+        int getKickCapacity();
         int getCurrentCapacity();
     private:
         std::string courseName;

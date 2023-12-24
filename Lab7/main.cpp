@@ -50,42 +50,15 @@ int main(){
         ......
     */
 
-    // for(int i = 0; i < oop.stud_num(); i++){
-    //     int r = rand() % 2;
-    //     if(r == 0){
-    //         oop.kick(oop.getStudent(i).getId());
-    //     }
-    // }
-
-
-    while(oop.stud_num() != oop.getCurrentCapacity()){
-        for(int i = 0; i < oop.getCurrentCapacity(); i++){
-            int r = rand() % 2;
-            if (r == 0){
-                oop.getKickList().push_back();
-                oop.kick(oop.getStudent(i).getId());
-            }
-        }
+    for (int i = 0; i < oop.getCurrentCapacity(); i++){
+        
     }
 
-
+    // oop.kick(oop.getStudent(i).getId());
     oop.print();
 
-    // for(int i = 0; i < ds.stud_num(); i++){
-    //     int r = rand() % 2;
-    //     if(r == 0){
-    //         ds.kick(ds.getStudent(i).getId());
-    //     }
-    // }
+    
 
-    while(ds.stud_num() != ds.getCurrentCapacity()){
-        for(int i = 0; i < ds.getCurrentCapacity(); i++){
-            int r = rand() % 2;
-            if (r == 0){
-                ds.kick(ds.getStudent(i).getId());
-            }
-        }
-    }
 
     ds.print();
 

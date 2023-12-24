@@ -46,6 +46,10 @@ int Course::getCurrentCapacity(){
     return studentList.size();
 }
 
+int Course::getKickCapacity(){
+    return kickList.size();
+}
+
 string Teacher::getTeacherfName() const{
     return teacherfName;
 }
@@ -86,8 +90,8 @@ Student Course::getStudent(int index){
     return studentList[index];
 }
 
-Student Course::getKickList(int index){
-    return kickList[index];
+void Course::setKickList(Student studentList){
+    kickList.push_back(studentList);
 }
 
 void Course::kick(int id){
