@@ -120,10 +120,14 @@ void Course::setKickList(Student studentList){
     kickList.push_back(studentList);
 }
 
-vector<Student> Course::returnStudentList(){
+vector<Student>& Course::returnStudentList(){
     return studentList;
 }
 
-void Course::kick(int id){
+vector<Student>& Course::returnKickList(){
+    return kickList;
+}
 
+bool Student::operator==(const Student& other) const{
+    return getId() == other.getId();
 }

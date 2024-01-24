@@ -14,14 +14,15 @@ class Course{
         void registerStudent(Student);
         void print();
         int stud_num();
-        void kick(int);
         Student getStudent(int);
         Student getKickStudent(int);
         void setKickList(Student);
         int getKickCapacity();
         int getCurrentCapacity();
         void kickListPrint();
-        std::vector<Student> returnStudentList();
+
+        std::vector<Student>& returnStudentList();
+        std::vector<Student>& returnKickList();
     private:
         std::string courseName;
         Teacher courseTeacher;

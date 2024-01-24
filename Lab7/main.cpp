@@ -4,6 +4,7 @@
 #include "student.hh"
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -86,5 +87,25 @@ int main(){
     
     oop.kickListPrint();
     ds.kickListPrint();
+
+    vector<Student>& oop_studentList = oop.returnStudentList();
+    vector<Student>& oop_kickList = oop.returnKickList();
+
+    oop_studentList.erase(remove_if(oop_studentList.begin(), oop_studentList.end(),
+    [&oop_kickList](const Student& student) {
+        return find(oop_kickList.begin(), oop_kickList.end(), student) != oop_kickList.end();
+    }), oop_studentList.end());
+
+    vector<Student>& ds_studentList = ds.returnStudentList();
+    vector<Student>& ds_kickList = ds.returnKickList();
+
+    ds_studentList.erase(remove_if(ds_studentList.begin(), ds_studentList.end(),
+    [&ds_kickList](const Student& student) {
+        return find(ds_kickList.begin(), ds_kickList.end(), student) != ds_kickList.end();
+    }), ds_studentList.end());
+
+    oop.print();
+    ds.print();
+
     return 0;
 }
