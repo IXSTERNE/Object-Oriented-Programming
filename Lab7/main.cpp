@@ -31,41 +31,60 @@ int main(){
         if(c == 1){
             ds.registerStudent(mkut_stud[i]);
         }
-    }
+    }  
+
 
     oop.print();
-    /*
-        Course name: OOP in C++     Teacher: Magsarjav Bataa (magsarjav@gmail.com)      Seat: 30
-        -----------------------------------------------------------------------------
-        1.  2003    Ner3    Ovog3
-        2.  2007    Ner7    Ovog7
-        ......
-    */
     ds.print();
-    /*
-        Course name: Data Structures     Teacher: Gantulga Gombojav (ggtulga@gmail.com)      Seat: 20
-        -----------------------------------------------------------------------------
-        1.  2002    Ner2    Ovog2
-        2.  2005    Ner5    Ovog5
-        ......
-    */
 
-    for (int i = 0; i < oop.getCurrentCapacity(); i++){
+    int oopExcess = oop.getCurrentCapacity() - oop.stud_num();
+    while(oop.getKickCapacity() != oopExcess){
+        for(int i = 0; i < oop.getCurrentCapacity(); i++){
+
+            if(oop.getKickCapacity() != oopExcess){
+                int c = rand() % 2;
+                if(c == 1){
+                    int flag = 0;
+                    for(int j = 0; j < oop.getKickCapacity(); j++){
+
+                        if(oop.getStudent(i).getId() == oop.getKickStudent(j).getId()){
+                            flag = 1;
+                            break;
+                        } 
+                    }
+                    if(flag == 0){
+                        oop.setKickList(oop.getStudent(i));
+                    }        
+                }
+            }
+        }
+    }
         
+
+    int dsExcess = ds.getCurrentCapacity() - ds.stud_num();
+    while(ds.getKickCapacity() != dsExcess){
+        for(int i = 0; i < ds.getCurrentCapacity(); i++){
+            
+            if(ds.getKickCapacity() != dsExcess){
+                int c = rand() % 2;
+                if(c == 1){
+                    int flag = 0;
+                    for(int j = 0; j < ds.getKickCapacity(); j++){
+                        
+                        if(ds.getStudent(i).getId() == ds.getKickStudent(j).getId()){
+                            flag = 1;
+                            break;
+                        }
+                    }
+                    if(flag == 0){
+                        ds.setKickList(ds.getStudent(i));
+                    }
+                }
+            }
+        }
     }
-
-    // oop.kick(oop.getStudent(i).getId());
-    oop.print();
-
     
-
-
-    ds.print();
-
-    // 2) 3 classiin bux gishuun ugugdul : private (CHECK)
-    // 3) 3 classaa header file + object bolgoj urdchilj compildej bgaad main.cpp dee ashiglana
-    // 3 classiin methodiin implementationuud haragdaxgui
-    // system include bin ees ajiluulval +1 onoo
-
+    oop.kickListPrint();
+    ds.kickListPrint();
     return 0;
 }

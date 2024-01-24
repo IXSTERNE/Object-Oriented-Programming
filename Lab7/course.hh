@@ -16,9 +16,12 @@ class Course{
         int stud_num();
         void kick(int);
         Student getStudent(int);
+        Student getKickStudent(int);
         void setKickList(Student);
         int getKickCapacity();
         int getCurrentCapacity();
+        void kickListPrint();
+        std::vector<Student> returnStudentList();
     private:
         std::string courseName;
         Teacher courseTeacher;

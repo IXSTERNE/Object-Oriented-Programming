@@ -70,16 +70,38 @@ void Course::print(){
     << "Seat: "
     << courseCapacity << endl;
 
-    std::cout <<"----------------------------------------------------------------------------------------" << endl;
+    cout <<"----------------------------------------------------------------------------------------" << endl;
 
     int enumerate = 1;
-    for (const Student& student : studentList){
+    for(const Student& student : studentList){
         cout << enumerate << ". "
         << "ID: " << student.getId()
         << ", First name: " << student.getFirstName()
         << ", Last name: " << student.getLastName() << endl;
         enumerate++;
     }
+    cout << endl;
+}
+
+void Course::kickListPrint(){
+    cout << "Course Name: " << courseName 
+    << "   Teacher: " << courseTeacher.getTeacherfName() << " "
+    << courseTeacher.getTeacherlName() <<" " << "("
+    << courseTeacher.getTeacherEmail() << ")" <<"   "
+    << "Seat: "
+    << courseCapacity << endl;
+
+    cout <<"----------------------------------------------------------------------------------------" << endl;
+
+    int enumerate = 1;
+    for(const Student& student : kickList){
+        cout << enumerate << ". "
+        << "ID: " << student.getId()
+        << ", First name: " << student.getFirstName()
+        << ", Last name: " << student.getLastName() << endl;
+        enumerate++;
+    }
+    cout << endl;
 }
 
 int Course::stud_num(){
@@ -90,9 +112,18 @@ Student Course::getStudent(int index){
     return studentList[index];
 }
 
+Student Course::getKickStudent(int index){
+    return kickList[index];
+}
+
 void Course::setKickList(Student studentList){
     kickList.push_back(studentList);
 }
 
+vector<Student> Course::returnStudentList(){
+    return studentList;
+}
+
 void Course::kick(int id){
+
 }
